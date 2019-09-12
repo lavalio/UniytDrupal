@@ -38,6 +38,7 @@ namespace FancyScrollView.MonResto
                 // Show results as text
                 string jsonString = www.downloadHandler.text;
                 GetImages(jsonString);
+                Debug.Log("Image Conut:" + images.Count);
             }
         }
 
@@ -78,8 +79,9 @@ namespace FancyScrollView.MonResto
         void Update()
         {
             if (count == 0) return;
+            if (images.Count == 0) return;
 
-            if (index < count)
+            if (index < count-1)
             {
                 index++;
             }else
@@ -91,8 +93,8 @@ namespace FancyScrollView.MonResto
             Debug.Log(index);
             StartCoroutine(Wait());
 
-            //var texture = images[2];
-            //ChangeTexture(texture);
+            var texture = images[index];
+            ChangeTexture(texture);
         }
       
 

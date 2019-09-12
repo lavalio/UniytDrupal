@@ -6,10 +6,9 @@ namespace FancyScrollView.MonResto
     public class Cell : FancyScrollViewCell<ItemData, Context>
     {
         [SerializeField] Animator animator = default;
-        [SerializeField] Text message = default;
-        [SerializeField] Text messageLarge = default;
+        [SerializeField] Text index = default;
+        [SerializeField] Text teaser = default;
         [SerializeField] Image image = default;
-        [SerializeField] Image imageLarge = default;
         [SerializeField] Button button = default;
 
         static class AnimatorHash
@@ -24,13 +23,13 @@ namespace FancyScrollView.MonResto
 
         public override void UpdateContent(ItemData itemData)
         {
-            message.text = itemData.Message;
-            messageLarge.text = Index.ToString();
-
-            var selected = Context.SelectedIndex == Index;
-            imageLarge.color = image.color = selected
-                ? new Color32(0, 255, 255, 100)
-                : new Color32(255, 255, 255, 77);
+            /* 2019-09-12 
+            Here we control the information in cell
+             */
+            var count = itemData.Count;
+            index.text = Index.ToString()+"/"+count;
+            teaser.text = itemData.Message;
+            image.sprite = itemData.Image;
         }
 
         public override void UpdatePosition(float position)
