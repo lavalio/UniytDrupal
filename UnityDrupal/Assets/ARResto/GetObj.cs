@@ -51,13 +51,13 @@ namespace FancyScrollView.MonResto
         {
             var jsonObj = JSON.Parse(jsonString);
             var count = jsonObj["meta"]["count"];
-            //Debug.Log("Count:" + count);
+ 
             for (int i = 0; i < count; i++)
             {
                 string uri_imge = jsonObj["data"][i]["relationships"]["field_menu_images"]["data"][0]["meta"]["imageDerivatives"]["links"]["large"]["href"];
-                string description = jsonObj["data"][i]["attributes"]["field_menu_teaser"]["processed"];
-                description = description.Remove(0,3);
-                var item = new ItemData(description, count);
+                string teaser = jsonObj["data"][i]["attributes"]["field_menu_teaser"]["processed"];
+                teaser = teaser.Remove(0,3);
+                var item = new ItemData(teaser, count);
                 StartCoroutine(GetSprite(item,uri_imge));
             }
         }
