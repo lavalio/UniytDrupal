@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 7707277691097167848}
   - component: {fileID: 7707277691097167849}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Question Mark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
